@@ -25,7 +25,7 @@ namespace Semana6_.Net.Views
         public ManCategoria(Categoria categoria)
         {
             InitializeComponent();
-            viewModel = new ManCategoriaViewModel();
+            viewModel = new ManCategoriaViewModel(categoria);
             this.DataContext = viewModel;
         }
     }

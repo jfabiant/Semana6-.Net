@@ -23,10 +23,16 @@
                     <TextBox x:Name="txtDescripcion" Width="200" Text="{Binding Descripcion}"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="btnGrabar" Command="{Binding GrabarCommand}">Grabar</Button>
+                    <Button x:Name="btnGrabar"
+                            Command="{Binding GrabarCommand}"
+                            CommandParameter="{Binding ElementName=myWindow}">Grabar</Button>
                     <Button x:Name="btnCerrar" 
                             Command="{Binding CerrarCommand}"
                             CommandParameter="{Binding ElementName=myWindow}">Cerrar</Button>
+                    <Button x:Name="btnEliminar"
+                            Command="{Binding EliminarCommand}"
+                            CommandParameter="{Binding ElementName=myWindow}"
+                            >Eliminar</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

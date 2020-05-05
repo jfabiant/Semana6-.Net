@@ -14,6 +14,15 @@ namespace Semana6_.Net.ViewModels
 {
     public class ListaCategoriaViewModel : ViewModelBase
     {
+        
+        private readonly static ListaCategoriaViewModel _instance = new ListaCategoriaViewModel();
+        public static ListaCategoriaViewModel Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
         public Categoria _SelectedCategoria;
         public Categoria SelectedCategoria
@@ -24,6 +33,15 @@ namespace Semana6_.Net.ViewModels
                 if (_SelectedCategoria != value)
                 {
                     _SelectedCategoria = value;
+
+                    //Console.WriteLine(_SelectedCategoria);
+                    
+                    if (_SelectedCategoria != null)
+                    {
+                        ManCategoria window = new ManCategoria(_SelectedCategoria);
+                        window.ShowDialog();
+                    }
+
                     OnPropertyChanged();
                 }
             }
@@ -51,7 +69,6 @@ namespace Semana6_.Net.ViewModels
             Categorias = new CategoriaModel().Categorias;
             NuevoCommand = new RelayCommand<Window>(param => Abrir());
             ConsultarCommand = new RelayCommand<object>(o => { Categorias = (new CategoriaModel()).Categorias; });
-
         }
         
         void Abrir()

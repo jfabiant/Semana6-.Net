@@ -29,6 +29,7 @@
                           GridLinesVisibility="Vertical" HeadersVisibility="All" ItemsSource="{Binding Categorias}"
                           Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" 
                           BorderBrush="Gray" BorderThickness="5" SelectedItem="{Binding Path=SelectedCategoria,Mode=TwoWay}"
+                          IsReadOnly="True"
                           ></DataGrid>
             </StackPanel>
 

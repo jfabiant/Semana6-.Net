@@ -61,7 +61,7 @@ namespace Business
             return true;
         }
 
-        public void Delete(int idcategoria)
+        public bool Delete(int idcategoria)
         {
             try
             {
@@ -72,6 +72,7 @@ namespace Business
             {
                 throw ex;
             }
+            return true;
         }
 
     }

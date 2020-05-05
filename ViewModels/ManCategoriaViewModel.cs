@@ -1,5 +1,6 @@
 ﻿using Entity;
 using Semana6_.Net.Models;
+using Semana6_.Net.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,10 +63,27 @@ namespace Semana6_.Net.ViewModels
 
 		public ICommand GrabarCommand { get; set; }
 		public ICommand CerrarCommand { get; set; }
+		public ICommand EliminarCommand { get; set; }
 
-		public ManCategoriaViewModel()
+
+		public ManCategoriaViewModel(Categoria categoria)
 		{
-			GrabarCommand = new RelayCommand<object>(
+			if (categoria != null){
+				ID = categoria.IdCategoria;
+				Nombre = categoria.NombreCategoria;
+				Descripcion = categoria.Descripcion;
+			}
+
+			EliminarCommand = new RelayCommand<Window>(o =>
+			{
+				if (ID > 0)
+				{
+					new CategoriaModel().Eliminar(ID);
+				}
+				Cerrar(o);
+			});
+
+			GrabarCommand = new RelayCommand<Window>(
 				o =>
 				{
 					if (ID > 0)
@@ -85,6 +103,8 @@ namespace Semana6_.Net.ViewModels
 							Descripcion = Descripcion
 						});
 					}
+
+					Cerrar(o);
 
 				});
 

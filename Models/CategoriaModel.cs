@@ -29,5 +29,10 @@ namespace Semana6_.Net.Models
             return (new BCategoria()).Update(categoria);
         }
 
+        public bool Eliminar(int idcategoria)
+        {
+            return (new BCategoria()).Delete(idcategoria);
+        }
+
     }
 }
